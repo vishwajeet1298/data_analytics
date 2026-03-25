@@ -80,7 +80,13 @@ print(companies_info_df.head())
 #To Save this new dataFrame with Age Column
 companies_info_df.to_csv("companies_information_dataframe.csv", index=False)
 
+# To get Largest number in Employee Count 
+print("Total number of Employee:\n",companies_info_df["Employee Count"].max())
+# Company with Maximum Count
+print("Company Name with Highest Number of Employee:\n",companies_info_df[["Company","Employee Count"]].max())
 
+# To get Lowest age of Employee and their name in the DataFrame 
+print("Lowest age of Employee working:\n",companies_info_df[["First Name","Last Name","Age"]].min())
 
 
 
