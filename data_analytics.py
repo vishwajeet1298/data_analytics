@@ -69,6 +69,10 @@ companies_info_df.columns.str.strip()
 companies_info_df["Subscription Date"] = pd.to_datetime(companies_info_df["Subscription Date"], errors="coerce")
 companies_info_df.info()
 
+#to insert two more columns from main csv data to new dataframe- companies_info_df at specified location 0 and 1
+companies_info_df.insert(0, "First Name", customers_data["First Name"])
+companies_info_df.insert(1, "Last Name",  customers_data["Last Name"])
+
 
 
 
