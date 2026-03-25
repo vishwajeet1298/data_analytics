@@ -73,6 +73,13 @@ companies_info_df.info()
 companies_info_df.insert(0, "First Name", customers_data["First Name"])
 companies_info_df.insert(1, "Last Name",  customers_data["Last Name"])
 
+# Add a new Column named Age in companies_info_df.csv
+companies_info_df["Age"]=np.random.randint(18,61,size=len(companies_info_df)).astype("int64")
+print(companies_info_df.head())
+
+#To Save this new dataFrame with Age Column
+companies_info_df.to_csv("companies_information_dataframe.csv", index=False)
+
 
 
 
