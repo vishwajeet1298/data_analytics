@@ -28,7 +28,7 @@ website=customers_data["Website"]
 print(website.head())
 #To get data type of new dataframe
 print(type(website))
-# shape generally return the total number of rows in a column
+# shape generally return the tuples count in a column, returns something like (N,).
 print("Number of Websites:", website.shape)
 
 #To get the total number of Comapany in customers_data dataframe
@@ -95,9 +95,8 @@ low_row = companies_info_df.loc[lowest_idx]
 
 print(f"Lowest age of Employee working:\n{low_row['First Name']} {low_row['Last Name']} (Age: {low_row['Age']})")
 
-
-
-
+#remove invalid dates from Subscription date Column using dropna()
+date_df = companies_info_df.dropna(subset=["Subscription Date"]).copy()
 
 
 
