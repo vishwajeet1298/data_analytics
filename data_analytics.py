@@ -82,11 +82,18 @@ companies_info_df.to_csv("companies_information_dataframe.csv", index=False)
 
 # To get Largest number in Employee Count 
 print("Total number of Employee:\n",companies_info_df["Employee Count"].max())
-# Company with Maximum Count
-print("Company Name with Highest Number of Employee:\n",companies_info_df[["Company","Employee Count"]].max())
+# Find the index of the row with the most employees
+highest_idx = companies_info_df["Employee Count"].idxmax()
+row = companies_info_df.loc[highest_idx]
 
-# To get Lowest age of Employee and their name in the DataFrame 
-print("Lowest age of Employee working:\n",companies_info_df[["First Name","Last Name","Age"]].min())
+#Display specific values on a new line
+print(f"Company Name with Highest Number of Employee:\n{row['Company']} ({row['Employee Count']} employees)")
+
+# Same logic for lowest age
+lowest_idx = companies_info_df["Age"].idxmin()
+low_row = companies_info_df.loc[lowest_idx]
+
+print(f"Lowest age of Employee working:\n{low_row['First Name']} {low_row['Last Name']} (Age: {low_row['Age']})")
 
 
 
