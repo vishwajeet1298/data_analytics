@@ -59,11 +59,10 @@ Generally it works only on the Numerical Data in the DataFrame but if we write d
 print(companies_info_df.describe(include="all"))
 print("Display Column Names Only from a DataFrame",companies_info_df.columns) # to print Column Names only
 
-companies_info_df.info()
 # to convert  to list
 print("Columns from the dataframe are converted to list",companies_info_df.columns.tolist())
-# this helps to remove trailing spaces from column names 
-companies_info_df.columns.str.strip()
+# this helps to remove trailing spaces from column names, assigning is mandatory
+companies_info_df.columns=companies_info_df.columns.str.strip()
 
 #to convert date from string to Date_Time format 
 companies_info_df["Subscription Date"] = pd.to_datetime(companies_info_df["Subscription Date"], errors="coerce")
@@ -78,7 +77,7 @@ companies_info_df["Age"]=np.random.randint(18,61,size=len(companies_info_df)).as
 print(companies_info_df.head())
 
 #To Save this new dataFrame with Age Column
-companies_info_df.to_csv("companies_information_dataframe.csv", index=False)
+#companies_info_df.to_csv("companies_information_dataframe.csv", index=False)
 
 # To get Largest number in Employee Count 
 print("Total number of Employee:\n",companies_info_df["Employee Count"].max())
@@ -97,6 +96,13 @@ print(f"Lowest age of Employee working:\n{low_row['First Name']} {low_row['Last 
 
 #remove invalid dates from Subscription date Column using dropna()
 date_df = companies_info_df.dropna(subset=["Subscription Date"]).copy()
+print(date_df)
 
+#To isolate single row using index
+isolate_single_row_df=companies_info_df[companies_info_df.index==1]
+print(isolate_single_row_df)
+#To isolate Single Column -> Age
+isolate_single_column=companies_info_df["Age"]
+print("Isolated Single Column from the DataFrame:\n",isolate_single_column)
 
 
