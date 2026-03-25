@@ -103,6 +103,8 @@ isolate_single_row_df=companies_info_df[companies_info_df.index==1]
 print(isolate_single_row_df)
 #To isolate Single Column -> Age
 isolate_single_column=companies_info_df["Age"]
-print("Isolated Single Column from the DataFrame:\n",isolate_single_column)
+print("Isolated Single Column from the DataFrame companies_info_df:\n",isolate_single_column)
 
-
+#To isolate Multiple Column -> Company, Employee Count
+isolate_multiple_column=companies_info_df[["Company", "Employee Count"]]
+print("Isolated Multiple Column from the DataFrame companies_info_df :\n",isolate_multiple_column)
